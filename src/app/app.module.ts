@@ -20,14 +20,20 @@ export const firebaseConfig = {
 // Pages and Components
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { SignUpPage } from '../pages/signup/signup';
 
 // Providers
 import { Geolocation } from '@ionic-native/geolocation';
+import { AngularFireAuth } from 'angularfire2/auth';
+
+// Services
+import {FirebaseService} from "../services/firebase-service";
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    SignUpPage
   ],
   imports: [
     BrowserModule,
@@ -37,12 +43,15 @@ import { Geolocation } from '@ionic-native/geolocation';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    SignUpPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     Geolocation,
+    FirebaseService,
+    AngularFireAuth,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
